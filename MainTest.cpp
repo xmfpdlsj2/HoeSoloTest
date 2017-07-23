@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <stdio.h>
+#include <time.h>
 
 
 
@@ -66,41 +67,50 @@ void MakeTriangleWithStar(int triangleSize)
 
 void UpDownChallenge()
 {
+	srand((unsigned)time(NULL));
+	int RightNumber = rand() % 100;
+	int inputNumber = 0;
 	char* stringBuffer = new char;//[2];
 
 	printf_s("Take My Number~\n");
 	printf_s("Through your Number: ");
 
-	stringBuffer = "i hate you";
-	
-	std::cout << stringBuffer << std::endl;
+	scanf_s("%d", inputNumber);
 
+	while (inputNumber != RightNumber)
+	{
+		if (inputNumber > 100 && inputNumber < 0)
+		{
+			inputNumber = 0;
+			printf_s("Out of Range(0~100)\n");
+			printf_s("Through your Number: ");
+			scanf_s("%d", inputNumber);
+		}
+		else if (RightNumber < inputNumber)
+		{
+			printf_s("Down plz\n");
+			printf_s("Through your Number: ");
+			scanf_s("%d", inputNumber);
+		}
+		else
+		{
+			printf_s("Up plz\n");
+			printf_s("Through your Number: ");
+			scanf_s("%d", inputNumber);
+		}
+	}	
+
+	printf_s("Oh Correct! My Number is %d !", inputNumber);
 
 	delete stringBuffer;
-
 }
 
 int main()
 {
 	
 	
-	//UpDownChallenge();
-	int a = 6;
-	int* b;
-	b = &a;
-
-	char* stringTest = "Aello";
-
-	std::cout << stringTest+1<< std::endl;
-
-	std::cout << b << std::endl;
+	UpDownChallenge();
 	
-	double c = 1;
-	double* d;
-	d = &c;
-	std::cout << &c  << std::endl;
-
-	std::cout << &c+1 << std::endl;
 
 
 	getchar();
