@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <stdio.h>
+#include <time.h>
 
 
 
@@ -18,10 +19,10 @@ CMainTest::~CMainTest()
 void strTest01()
 {
 	char sztest[] = "i love game";
-	char* szbuf = new char;
-	szbuf = "i love it";
+	//char* szbuf = new char;
+	//szbuf = "i love it";
 	char szbuff[32] = { 0, };
-
+	
 	sprintf_s(szbuff, "%s !!", sztest);
 	//std::cout << szbuf << std::endl;
 	//std::cout << strlen(szbuf) << std::endl;
@@ -66,43 +67,48 @@ void MakeTriangleWithStar(int triangleSize)
 
 void UpDownChallenge()
 {
-	char* stringBuffer = new char;//[2];
+	srand((unsigned)time(NULL));
 
-	printf_s("Take My Number~\n");
-	printf_s("Through your Number: ");
-
-	stringBuffer = "i hate you";
+	int correctNum = 0;
+	correctNum = rand() % 100;
+	int answerNum = 0;
 	
-	std::cout << stringBuffer << std::endl;
+	printf_s("Take My Number~\n");	
+	printf_s("Through your Number: ");
+	scanf_s("%d", &answerNum);
+		
+	while (answerNum != correctNum)
+	{
+		if (answerNum >= 100 || answerNum < 0)
+		{
+			answerNum = 0;
+			printf_s("your num is out of range(0~99), please Retry\n");
+			printf_s("Through your Number: ");
+			scanf_s("%d", &answerNum);
+		}
+		if (answerNum < correctNum)
+		{
+			std::cout << "plz up!" << std::endl;
+		}
+		else if (answerNum > correctNum)
+		{
+			std::cout << "plz down!" << std::endl;
+		}
 
-
-	delete stringBuffer;
-
+		printf_s("Through your Number: ");
+		scanf_s("%d", &answerNum);
+	}
+	std::cout << "yes Right!" << std::endl;
 }
 
 int main()
 {
 	
 	
-	//UpDownChallenge();
-	int a = 6;
-	int* b;
-	b = &a;
-
-	char* stringTest = "Aello";
-
-	std::cout << stringTest+1<< std::endl;
-
-	std::cout << b << std::endl;
+	UpDownChallenge();
 	
-	double c = 1;
-	double* d;
-	d = &c;
-	std::cout << &c  << std::endl;
-
-	std::cout << &c+1 << std::endl;
-
-
+	
+	getchar();
 	getchar();
 	return 0;
 }
