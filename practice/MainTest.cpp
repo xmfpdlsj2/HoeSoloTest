@@ -16,6 +16,8 @@ CMainTest::~CMainTest()
 }
 
 
+
+
 void strTest01()
 {
 	char sztest[] = "i love game";
@@ -100,13 +102,23 @@ void UpDownChallenge()
 	}
 	std::cout << "yes Right!" << std::endl;
 }
+void SetName(const std::string& s)
+{
+	std::string sbuf = s;
+	std::cout << sbuf << std::endl;
+	std::string a = "호준";
+	//이 셋함수의 구조는 아래 두 셋함수 호출을 가능하게 하기위한 형태..
+	//SetName("예나");		//매개변수 앞에 const가 붙음으로 가능해진다... 이유는 확실히 말하라면 못하겠다;으으.. 
+							//예상 하기론 "예나"가 상수인데, 참조로 받게되면 상수를 변경한 여지가 있기때문에? 에러가 나타난다.
+	//SetName(a);
+	//const std::string& s = "예나";
+}
+
 
 int main()
 {
 	
-	
-	UpDownChallenge();
-	
+	//UpDownChallenge();
 	
 	getchar();
 	getchar();

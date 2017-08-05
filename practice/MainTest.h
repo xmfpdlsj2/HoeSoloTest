@@ -4,5 +4,6 @@ class CMainTest
 public:
 	CMainTest();
 	virtual ~CMainTest();
+	
 };
 
