@@ -118,7 +118,7 @@ void SetName(const std::string& s)
 
 void Anagrame(std::string inputStr, std::string originalStr)
 {
-	std::string copyString;
+	std::string copyString;  
 	std::string zeroOrgStr;
 	bool changeRe = false;
 	
@@ -129,19 +129,18 @@ void Anagrame(std::string inputStr, std::string originalStr)
 			continue;
 		}
 		changeRe = true;	
-		
 		copyString = inputStr;
 
+		copyString += originalStr[i];
 		zeroOrgStr = originalStr;
 		zeroOrgStr[i] = '0';
-		copyString += originalStr[i];
 		
 		Anagrame(copyString, zeroOrgStr);
 
 	}
-	if (changeRe)
+	if (!changeRe)
 	{
-		std::cout << copyString.c_str() << std::endl;
+		std::cout << inputStr.c_str() << std::endl;
 	}
 
 }
