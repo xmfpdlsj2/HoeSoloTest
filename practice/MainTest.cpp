@@ -67,6 +67,7 @@ void MakeTriangleWithStar(int triangleSize)
 	}
 }
 
+//업다운 숫자 맞추기
 void UpDownChallenge()
 {
 	srand((unsigned)time(NULL));
@@ -115,12 +116,45 @@ void SetName(const std::string& s)
 }
 
 
+void Anagrame(std::string inputStr, std::string originalStr)
+{
+	std::string copyString;
+	std::string zeroOrgStr;
+	bool changeRe = false;
+	
+	for (int i = 0; i < originalStr.size(); i++)
+	{
+		if (originalStr[i] == '0')
+		{
+			continue;
+		}
+		changeRe = true;	
+		
+		copyString = inputStr;
+
+		zeroOrgStr = originalStr;
+		zeroOrgStr[i] = '0';
+		copyString += originalStr[i];
+		
+		Anagrame(copyString, zeroOrgStr);
+
+	}
+	if (changeRe)
+	{
+		std::cout << copyString.c_str() << std::endl;
+	}
+
+}
+
+
+
 int main()
 {
-	
+	Anagrame("","hat");
 	//UpDownChallenge();
-	
-	getchar();
+	//getchar();
+
+
 	getchar();
 	return 0;
 }
