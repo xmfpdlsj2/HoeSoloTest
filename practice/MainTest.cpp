@@ -115,6 +115,31 @@ void SetName(const std::string& s)
 	//const std::string& s = "¿¹³ª";
 }
 
+std::string Removechars(std::string str, std::string remove)
+{
+	bool lookUpTable[128] = {false,};
+	std::string strBuff;
+
+	for (int i = 0; i < remove.size(); i++)
+	{
+		lookUpTable[remove[i]] = true;
+	}
+
+	for (int j = 0; j < str.size(); j++)
+	{
+		if (lookUpTable[str[j]])
+		{
+			strBuff += " ";
+		}
+		else
+		{
+			strBuff += str[j];
+		}		
+	}
+	std::cout << strBuff.c_str() << std::endl;
+	return strBuff;
+}
+
 
 void Anagrame(std::string inputStr, std::string originalStr)
 {
@@ -145,14 +170,57 @@ void Anagrame(std::string inputStr, std::string originalStr)
 
 }
 
+void SquareLapSplice(const int& squareSize, const int& lapSize)
+{
+	int lapPoint = squareSize - lapSize;
+	if (lapPoint < 0)
+	{
+		std::cout << "Out of Range" << std::endl;
+		return;
+	}
+
+	for (int i = 0; i < (squareSize + lapPoint); i++)
+	{
+		if (i < lapPoint)
+		{
+			for (int j = 0; j < squareSize; j++)
+			{						
+				printf_s("O");
+			}
+			printf_s("\n");
+		}
+		else
+		{
+			for (int k = 0; k <(squareSize + lapPoint); k++)
+			{
+				if (i < squareSize && k < lapPoint)
+				{
+					printf_s("O");
+				}
+				else if (i >= squareSize && k < lapPoint)
+				{
+					printf_s(" ");
+				}			
+				else //if (k >= lapPoint)
+				{
+					printf_s("X");
+				}
+			}
+			printf_s("\n");
+		}
+	}
+}
+
 
 
 int main()
 {
-	Anagrame("","hat");
 	//UpDownChallenge();
 	//getchar();
-
+	//Removechars("Battle of the Vowels", "ba");
+	//Anagrame("","hate");
+	
+	SquareLapSplice(5, 3);
 
 	getchar();
 	return 0;

@@ -1,4 +1,6 @@
 ﻿  MainTest.cpp
-c:\users\gachon_game02\source\repos\hoesolotest\practice\maintest.cpp(125): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\gachon_game02\source\repos\hoesolotest\practice\maintest.cpp(123): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\gachon_game02\source\repos\hoesolotest\practice\maintest.cpp(128): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\gachon_game02\source\repos\hoesolotest\practice\maintest.cpp(150): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   practice.vcxproj -> C:\Users\Gachon_Game02\Source\Repos\HoeSoloTest\Debug\practice.exe
   practice.vcxproj -> C:\Users\Gachon_Game02\Source\Repos\HoeSoloTest\Debug\practice.pdb (Partial PDB)
